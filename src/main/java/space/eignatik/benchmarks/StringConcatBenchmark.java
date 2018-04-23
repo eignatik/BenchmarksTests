@@ -78,4 +78,13 @@ public class StringConcatBenchmark {
                 .add("bar")
                 .toString();
     }
+
+    @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @Fork(value = 1, warmups = 1)
+    @Warmup(iterations = 1)
+    public String usingStringConcatMethod() {
+        return "foo".concat("bar");
+    }
 }
